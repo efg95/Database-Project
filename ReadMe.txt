@@ -19,6 +19,6 @@ we used flask and python.
 
 The template folder contains all our html and css code.
 
-TO SEE ALL FUNCTIONS OF THE PROJECT ME AND LINGYU HAVE INCLUDED A VIDEO THAT YOU CAN WATCH HERE AT THIS LINK
+*TO SEE ALL FUNCTIONS OF THE PROJECT ME AND LINGYU HAVE INCLUDED A VIDEO THAT YOU CAN WATCH HERE AT THIS LINK*
 
 https://www.youtube.com/watch?v=7O3qepQ6pr4
