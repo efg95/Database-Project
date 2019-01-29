@@ -1,0 +1,55 @@
+{% extends "menu.html" %}
+{% block content %}
+
+<style>
+#main {
+  font-family: Helvetica, Arial;
+  border-collapse: collapse;
+  width: 70%;
+}
+#main td, #main th {
+  border: 0px solid;
+  padding: 8px;
+}
+#main tr:nth-child(odd){background-color: #e8e8e8;}
+#main tr:nth-child(even){background-color: #f6f6f6;}
+#main tr:hover {background-color: #ddd;}
+#main th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
+  background-color: #171717;
+  color: white;
+}
+#main td {
+  color: blue;
+}
+</style>
+<font color="white">
+<table id="main" align='center' width=225 style='table-layout:fixed'>
+  <tr>
+    <th>Name</th>
+    <th>Server ID</th>
+    <th>Time In</th>
+    <th>Wage</th>
+  </tr>
+
+  {% for n in id %}
+  <tr>
+    {%for elem in n%}
+    <td>{{elem}}</td>
+    {%endfor%}
+   </tr>
+  {% endfor %}
+</table>
+
+<form method="POST" action="/addserver">
+ <fieldset>
+  <legend>New Server:</legend>
+  Name: <input type="text" name = "name"><br>
+  Wage: <input type="number" name = "wage"><br>
+  <input type="submit" value = "Add">
+ </fieldset>
+</form>
+</font>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "menu.html" %}
+{% block content %}
+
+<style>
+#main {
+  font-family: Helvetica, Arial;
+  border-collapse: collapse;
+  width: 70%;
+}
+#main td, #main th {
+  border: 0px solid;
+  padding: 8px;
+}
+#main tr:nth-child(odd){background-color: #e8e8e8;}
+#main tr:nth-child(even){background-color: #f6f6f6;}
+#main tr:hover {background-color: #ddd;}
+#main th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
+  background-color: #171717;
+  color: white;
+}
+#main td {
+  color: blue;
+}
+</style>
+<font color="white">
+<table id="main" align='center' width=225 style='table-layout:fixed'>
+  <tr>
+    <th>Order Number</th>
+    <th>Order Type</th>
+    <th>Time</th>
+  </tr>
+
+  {% for n in id %}
+  <tr>
+    {%for elem in n%}
+    <td>{{elem}}</td>
+    {%endfor%}
+   </tr>
+  {% endfor %}
+</table>
+
+<form method="POST" action="/addorder">
+<fieldset>
+<legend>Create New order: </legend>
+Menu Number:<input type = "number" name = "itemnumber"><br>
+Amount:<input type = "number" name = "amount"><br>
+Order type:<input type="text" name= "ordertype"><br>
+<input type="submit" value="Add">
+</fieldset>
+</form>
+
+<form method="POST" action="/addorder">
+<fieldset>
+<legend>Add To Existing Order: </legend>
+Order Number:<input type = "number" name = "ordernumber"><br>
+Menu Number:<input type = "number" name = "itemnumber"><br>
+Amount:<input type = "number" name = "amount"><br>
+<input type="submit" value="Add">
+</fieldset>
+</form>
+
+
+<form method="POST" action="/includes">
+<fieldset>
+<legend>Check what an order number includes:</legend>
+Order Number:<input type="number" name= "ordernumber"><br>
+<input type="submit" value="Check">
+</fieldset>
+</form>
+</font>
+{% endblock %}

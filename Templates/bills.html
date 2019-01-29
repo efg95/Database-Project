@@ -1,0 +1,55 @@
+{% extends "menu.html" %}
+{% block content %}
+
+<style>
+#main {
+  font-family: Helvetica, Arial;
+  border-collapse: collapse;
+  width: 70%;
+}
+#main td, #main th {
+  border: 0px solid;
+  padding: 8px;
+}
+#main tr:nth-child(odd){background-color: #e8e8e8;}
+#main tr:nth-child(even){background-color: #f6f6f6;}
+#main tr:hover {background-color: #ddd;}
+#main th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
+  background-color: #171717;
+  color: white;
+}
+#main td {
+  color: blue;
+}
+</style>
+
+<table id="main" align='center' width=225 style='table-layout:fixed'>
+  <tr>
+    <th>Bill ID</th>
+    <th>Total</th>
+    <th>Paid</th>
+    <th>Time</th>
+  </tr>
+
+  {% for n in id %}
+  <tr>
+    {%for elem in n%}
+    <td>{{elem}}</td>
+    {%endfor%}
+   </tr>
+  {% endfor %}
+</table>
+
+<font color="white">
+<form method="POST" action="/paid_bill">
+<fieldset>
+<legend>Pay Bill:</legend>
+Bill ID:<input type="text" name= "bid"><br>
+<input type="submit" value="Pay">
+</fieldset>
+</form>
+</font>
+{% endblock %}
